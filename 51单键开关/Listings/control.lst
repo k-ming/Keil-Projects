@@ -1,0 +1,70 @@
+C51 COMPILER V9.60.0.0   CONTROL                                                           06/20/2023 23:36:29 PAGE 1   
+
+
+C51 COMPILER V9.60.0.0, COMPILATION OF MODULE CONTROL
+OBJECT MODULE PLACED IN .\Objects\control.obj
+COMPILER INVOKED BY: D:\software\Keil_v5\C51\BIN\C51.EXE control.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\L
+                    -istings\control.lst) TABS(2) OBJECT(.\Objects\control.obj)
+
+line level    source
+
+   1          #include <REG52.H>
+   2          
+   3          sbit button = P0^0; //定义连接开关的引脚
+   4          sbit mos = P0^1; //设置连接mos管的引脚
+   5          
+   6          // 延时函数
+   7          void delay_ms(unsigned int time){
+   8   1        unsigned int i, j;
+   9   1        for(i = 0; i < time; i++){
+  10   2          for(j = 0; j < 1000; j++){
+  11   3          }
+  12   2        }
+  13   1      }
+  14          
+  15          // 按键消抖
+  16          /*
+  17          int debounce(){
+  18            int state = button; //保存初始状态
+  19            int count = 0; // 设置计数器初始值
+  20            while(count < 10){ //连续检测10次
+  21              if(button != state){
+  22                count = 0; //重置计数器
+  23                state = button; //更新状态
+  24              }else{
+  25                count++; //计数器递增
+  26              }
+  27              delay_ms(50); //延时50ms
+  28            }
+  29            return state; //返回消抖的状态
+  30          }
+  31          */
+  32          
+  33          
+  34          void main(){
+  35   1        while(1){
+  36   2          if(button == 0){ //第一次检测按键被按下，然后消抖20ms
+  37   3            delay_ms(20);
+  38   3            if(button == 0){ //第二次检测按键被按下，导通/断开mos
+  39   4              mos = !mos;
+  40   4            }
+  41   3          while(!button); //当按键未松开时，执行该死循环
+  42   3          } 
+  43   2        }
+  44   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     52    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+C51 COMPILER V9.60.0.0   CONTROL                                                           06/20/2023 23:36:29 PAGE 2   
+
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

@@ -1,0 +1,64 @@
+C51 COMPILER V9.60.0.0   STC15F104W________                                                06/29/2023 23:43:46 PAGE 1   
+
+
+C51 COMPILER V9.60.0.0, COMPILATION OF MODULE STC15F104W________
+OBJECT MODULE PLACED IN .\Objects\STC15F104W单键开关.obj
+COMPILER INVOKED BY: D:\software\Keil_v5\C51\BIN\C51.EXE STC15F104W单键开关.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEN
+                    -D PRINT(.\Listings\STC15F104W单键开关.lst) TABS(2) OBJECT(.\Objects\STC15F104W单键开关.obj)
+
+line level    source
+
+   1          #include <STC15F2K60S2.H>
+   2          #include <intrins.h>
+   3          #define motor P33   //宏定义一个电机, P33引脚给出高电平时点亮导通mos管驱动电机
+   4          #define btn P34   //宏定义一个按钮，P34输入低电平时表示按钮按下
+   5          // 延时1ms
+   6          void Delay1ms()   //@11.0592MHz
+   7          {
+   8   1        unsigned char data i, j;
+   9   1        _nop_();
+  10   1        _nop_();
+  11   1        _nop_();
+  12   1        i = 11;
+  13   1        j = 190;
+  14   1        do
+  15   1        {
+  16   2          while (--j);
+  17   2        } while (--i);
+  18   1      }
+  19          
+  20          
+  21          // 延时 N ms
+  22          void DelayNms(unsigned int num){
+  23   1        unsigned int i;
+  24   1        for(i=0; i<num; i++){
+  25   2          Delay1ms(); // 执行num次延时1ms
+  26   2        }
+  27   1      }
+  28          
+  29          
+  30          void main(){
+  31   1        while(1){
+  32   2          if(btn == 0){ //第一次检测按钮
+  33   3            DelayNms(2);//消抖2ms后再次检测按钮
+  34   3            if(btn == 0){
+  35   4              motor =~motor; //motor引脚的值取反，打开或关闭
+  36   4            }
+  37   3            while(~btn); //按钮按下未松开不做处理
+  38   3          }
+  39   2        }
+  40   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     59    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

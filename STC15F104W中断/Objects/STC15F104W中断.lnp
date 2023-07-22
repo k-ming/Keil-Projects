@@ -1,0 +1,5 @@
+".\Objects\STARTUP.obj",
+".\Objects\STC15F104WÖÐ¶Ï.obj",
+".\Objects\sys_delay_ms.obj" 
+TO ".\Objects\STC15F104WÖÐ¶Ï" 
+PRINT(".\Listings\STC15F104WÖÐ¶Ï.m51")

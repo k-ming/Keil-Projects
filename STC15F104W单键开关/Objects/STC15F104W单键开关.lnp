@@ -1,0 +1,4 @@
+".\Objects\STARTUP.obj",
+".\Objects\STC15F104W单键开关.obj" 
+TO ".\Objects\STC15F104W单键开关" 
+PRINT(".\Listings\STC15F104W单键开关.m51")

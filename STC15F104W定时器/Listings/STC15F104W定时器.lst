@@ -1,0 +1,63 @@
+C51 COMPILER V9.60.0.0   STC15F104W______                                                  06/30/2023 19:49:53 PAGE 1   
+
+
+C51 COMPILER V9.60.0.0, COMPILATION OF MODULE STC15F104W______
+OBJECT MODULE PLACED IN .\Objects\STC15F104W定时器.obj
+COMPILER INVOKED BY: D:\software\Keil_v5\C51\BIN\C51.EXE STC15F104W定时器.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND 
+                    -PRINT(.\Listings\STC15F104W定时器.lst) TABS(2) OBJECT(.\Objects\STC15F104W定时器.obj)
+
+line level    source
+
+   1          #include <STC15F2K60S2.H>
+   2          
+   3          // 定时器0初始化，可以在stc-isp软件中自动生成
+   4          void Timer0_Init(void)    //1毫秒@12.000MHz
+   5          {
+   6   1        AUXR |= 0x80;     //定时器时钟1T模式
+   7   1        TMOD &= 0xF0;     //设置定时器模式
+   8   1        TL0 = 0x20;       //设置定时初始值
+   9   1        TH0 = 0xD1;       //设置定时初始值
+  10   1        TF0 = 0;        //清除TF0标志
+  11   1        TR0 = 1;        //定时器0开始计时
+  12   1      }
+  13          
+  14          
+  15          
+  16          //定时器0溢出回调函数
+  17          void Timer0_Call(void) interrupt 1
+  18          {
+  19   1        P33 = ~P33; //每1ms将P3^3口取反一次
+  20   1      }
+  21          
+  22          //外部中断2回调函数
+  23          void Interrupt2_Call(void) interrupt 10
+  24          {
+  25   1        ET0 = ~ET0; // 定时器0溢出中断关闭
+  26   1        if(ET0 == 1){
+  27   2          P33 = 1;
+  28   2        }else{
+  29   2          P33 =0;
+  30   2        } //导通/断开mos
+  31   1        
+  32   1      }
+  33          
+  34          void main(){
+  35   1        Timer0_Init(); //调用定时器0初始化
+  36   1        ET0 = 1; // 定时器0溢出中断开启
+  37   1        INT_CLKO |= 0X10; //EX2=1 开启外部中断2
+  38   1        EA = 1; // 打开中断总开关
+  39   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     42    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

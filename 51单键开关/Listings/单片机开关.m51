@@ -1,0 +1,98 @@
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                    06/20/2023  23:36:29  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22.2.0, INVOKED BY:
+D:\SOFTWARE\KEIL_V5\C51\BIN\BL51.EXE .\Objects\control.obj TO .\Objects\单片机开关 PRINT (.\Listings\单片机开关.m51) RAM
+>> SIZE (256)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  .\Objects\control.obj (CONTROL)
+  D:\SOFTWARE\KEIL_V5\C51\LIB\C51S.LIB (?C_STARTUP)
+
+
+LINK MAP OF MODULE:  .\Objects\单片机开关 (CONTROL)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            IDATA   0008H     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+            CODE    0003H     0020H     UNIT         ?PR?_DELAY_MS?CONTROL
+            CODE    0023H     0014H     UNIT         ?PR?MAIN?CONTROL
+            CODE    0037H     000CH     UNIT         ?C_C51STARTUP
+
+
+
+OVERLAY MAP OF MODULE:   .\Objects\单片机开关 (CONTROL)
+
+
+SEGMENT
+  +--> CALLED SEGMENT
+---------------------
+?C_C51STARTUP
+  +--> ?PR?MAIN?CONTROL
+
+?PR?MAIN?CONTROL
+  +--> ?PR?_DELAY_MS?CONTROL
+
+
+
+SYMBOL TABLE OF MODULE:  .\Objects\单片机开关 (CONTROL)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        CONTROL
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0080H         PUBLIC        P0
+  D:0090H         PUBLIC        P1
+  D:00B0H         PUBLIC        P3
+  D:00A8H         PUBLIC        IE
+  D:00B8H         PUBLIC        IP
+  B:0080H.0       PUBLIC        button
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  06/20/2023  23:36:29  PAGE 2
+
+
+  C:0023H         PUBLIC        main
+  D:0098H         PUBLIC        SCON
+  D:0088H         PUBLIC        TCON
+  B:0080H.1       PUBLIC        mos
+  C:0003H         PUBLIC        _delay_ms
+  D:00C8H         PUBLIC        T2CON
+  D:00D0H         PUBLIC        PSW
+  -------         PROC          _DELAY_MS
+  D:0006H         SYMBOL        time
+  -------         DO            
+  D:0004H         SYMBOL        i
+  D:0002H         SYMBOL        j
+  -------         ENDDO         
+  C:0003H         LINE#         7
+  C:0003H         LINE#         9
+  C:000DH         LINE#         10
+  C:0010H         LINE#         11
+  C:001BH         LINE#         12
+  C:0022H         LINE#         13
+  -------         ENDPROC       _DELAY_MS
+  -------         PROC          MAIN
+  C:0023H         LINE#         34
+  C:0023H         LINE#         35
+  C:0023H         LINE#         36
+  C:0026H         LINE#         37
+  C:002DH         LINE#         38
+  C:0030H         LINE#         39
+  C:0032H         LINE#         40
+  C:0032H         LINE#         41
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        CONTROL
+
+Program Size: data=9.0 xdata=0 code=67
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

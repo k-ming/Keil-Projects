@@ -1,0 +1,156 @@
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                    06/29/2023  23:38:43  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22.2.0, INVOKED BY:
+D:\SOFTWARE\KEIL_V5\C51\BIN\BL51.EXE .\Objects\STARTUP.obj, .\Objects\STC15F104W流水灯.obj TO .\Objects\STC15F104W流水灯
+>>  PRINT (.\Listings\STC15F104W流水灯.m51)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  .\Objects\STARTUP.obj (?C_STARTUP)
+  .\Objects\STC15F104W流水灯.obj (STC15F104W______)
+
+
+LINK MAP OF MODULE:  .\Objects\STC15F104W流水灯 (?C_STARTUP)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            IDATA   0008H     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+            CODE    0003H     0019H     UNIT         ?PR?_DELAY_MS?STC15F104W______
+            CODE    001CH     0012H     UNIT         ?PR?MAIN?STC15F104W______
+            CODE    002EH     000CH     UNIT         ?C_C51STARTUP
+            CODE    003AH     000CH     UNIT         ?PR?DELAY1MS?STC15F104W______
+
+
+
+OVERLAY MAP OF MODULE:   .\Objects\STC15F104W流水灯 (?C_STARTUP)
+
+
+SEGMENT
+  +--> CALLED SEGMENT
+---------------------
+?C_C51STARTUP
+  +--> ?PR?MAIN?STC15F104W______
+
+?PR?MAIN?STC15F104W______
+  +--> ?PR?_DELAY_MS?STC15F104W______
+
+?PR?_DELAY_MS?STC15F104W______
+  +--> ?PR?DELAY1MS?STC15F104W______
+
+
+
+SYMBOL TABLE OF MODULE:  .\Objects\STC15F104W流水灯 (?C_STARTUP)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        ?C_STARTUP
+  C:002EH         SEGMENT       ?C_C51STARTUP
+  I:0008H         SEGMENT       ?STACK
+  C:0000H         PUBLIC        ?C_STARTUP
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  06/29/2023  23:38:43  PAGE 2
+
+
+  D:00E0H         SYMBOL        ACC
+  D:00F0H         SYMBOL        B
+  D:0083H         SYMBOL        DPH
+  D:0082H         SYMBOL        DPL
+  N:0000H         SYMBOL        IBPSTACK
+  N:0100H         SYMBOL        IBPSTACKTOP
+  N:0080H         SYMBOL        IDATALEN
+  C:0031H         SYMBOL        IDATALOOP
+  N:0000H         SYMBOL        PBPSTACK
+  N:0100H         SYMBOL        PBPSTACKTOP
+  N:0000H         SYMBOL        PDATALEN
+  N:0000H         SYMBOL        PDATASTART
+  N:0000H         SYMBOL        PPAGE
+  N:0000H         SYMBOL        PPAGEENABLE
+  D:00A0H         SYMBOL        PPAGE_SFR
+  D:0081H         SYMBOL        SP
+  C:002EH         SYMBOL        STARTUP1
+  N:0000H         SYMBOL        XBPSTACK
+  N:0000H         SYMBOL        XBPSTACKTOP
+  N:0000H         SYMBOL        XDATALEN
+  N:0000H         SYMBOL        XDATASTART
+  C:0000H         LINE#         126
+  C:002EH         LINE#         133
+  C:0030H         LINE#         134
+  C:0031H         LINE#         135
+  C:0032H         LINE#         136
+  C:0034H         LINE#         185
+  C:0037H         LINE#         196
+  -------         ENDMOD        ?C_STARTUP
+
+  -------         MODULE        STC15F104W______
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0080H         PUBLIC        P0
+  D:0090H         PUBLIC        P1
+  D:00A0H         PUBLIC        P2
+  D:00B0H         PUBLIC        P3
+  D:00C0H         PUBLIC        P4
+  C:003AH         PUBLIC        Delay1ms
+  D:00C8H         PUBLIC        P5
+  D:00E8H         PUBLIC        P6
+  D:00F8H         PUBLIC        P7
+  D:00A8H         PUBLIC        IE
+  D:00B8H         PUBLIC        IP
+  D:00D8H         PUBLIC        CCON
+  C:001CH         PUBLIC        main
+  C:0003H         PUBLIC        _Delay_ms
+  D:0098H         PUBLIC        SCON
+  D:0088H         PUBLIC        TCON
+  B:00B0H.3       PUBLIC        P33
+  D:00D0H         PUBLIC        PSW
+  -------         PROC          DELAY1MS
+  -------         DO            
+  D:0007H         SYMBOL        i
+  D:0006H         SYMBOL        j
+  -------         ENDDO         
+  C:003AH         LINE#         6
+  C:003AH         LINE#         7
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  06/29/2023  23:38:43  PAGE 3
+
+
+  C:003AH         LINE#         10
+  C:003BH         LINE#         11
+  C:003CH         LINE#         12
+  C:003DH         LINE#         13
+  C:003FH         LINE#         14
+  C:0041H         LINE#         16
+  C:0041H         LINE#         17
+  C:0043H         LINE#         18
+  C:0045H         LINE#         19
+  -------         ENDPROC       DELAY1MS
+  -------         PROC          _DELAY_MS
+  D:0004H         SYMBOL        num
+  -------         DO            
+  D:0002H         SYMBOL        i
+  -------         ENDDO         
+  C:0003H         LINE#         24
+  C:0007H         LINE#         26
+  C:0011H         LINE#         27
+  C:0014H         LINE#         28
+  C:001BH         LINE#         29
+  -------         ENDPROC       _DELAY_MS
+  -------         PROC          MAIN
+  C:001CH         LINE#         31
+  C:001CH         LINE#         32
+  C:001EH         LINE#         33
+  C:0025H         LINE#         34
+  C:0027H         LINE#         35
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        STC15F104W______
+
+Program Size: data=9.0 xdata=0 code=70
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

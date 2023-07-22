@@ -1,0 +1,97 @@
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                    06/18/2023  22:50:27  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22.2.0, INVOKED BY:
+D:\SOFTWARE\KEIL_V5\C51\BIN\BL51.EXE .\Objects\led.obj TO .\Objects\流水灯 PRINT (.\Listings\流水灯.m51) RAMSIZE (64)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  .\Objects\led.obj (LED)
+  D:\SOFTWARE\KEIL_V5\C51\LIB\C51S.LIB (?C_STARTUP)
+
+
+LINK MAP OF MODULE:  .\Objects\流水灯 (LED)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            IDATA   0008H     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+            CODE    0003H     0036H     UNIT         ?PR?MAIN?LED
+            CODE    0039H     0027H     UNIT         ?PR?_DELAY_MS?LED
+            CODE    0060H     000CH     UNIT         ?C_C51STARTUP
+
+
+
+OVERLAY MAP OF MODULE:   .\Objects\流水灯 (LED)
+
+
+SEGMENT
+  +--> CALLED SEGMENT
+---------------------
+?C_C51STARTUP
+  +--> ?PR?MAIN?LED
+
+?PR?MAIN?LED
+  +--> ?PR?_DELAY_MS?LED
+
+
+
+SYMBOL TABLE OF MODULE:  .\Objects\流水灯 (LED)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        LED
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0080H         PUBLIC        P0
+  C:0003H         PUBLIC        main
+  C:0039H         PUBLIC        _delay_ms
+  -------         PROC          _DELAY_MS
+  D:0006H         SYMBOL        a
+  -------         DO            
+  D:0004H         SYMBOL        i
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  06/18/2023  22:50:27  PAGE 2
+
+
+  D:0002H         SYMBOL        j
+  -------         ENDDO         
+  C:0039H         LINE#         4
+  C:0039H         LINE#         6
+  C:0049H         LINE#         7
+  C:0058H         LINE#         8
+  C:005FH         LINE#         9
+  -------         ENDPROC       _DELAY_MS
+  -------         PROC          MAIN
+  C:0003H         LINE#         11
+  C:0003H         LINE#         12
+  C:0003H         LINE#         13
+  C:0006H         LINE#         14
+  C:000DH         LINE#         15
+  C:0010H         LINE#         16
+  C:0013H         LINE#         17
+  C:0016H         LINE#         18
+  C:0019H         LINE#         19
+  C:001CH         LINE#         20
+  C:001FH         LINE#         21
+  C:0022H         LINE#         22
+  C:0025H         LINE#         23
+  C:0028H         LINE#         24
+  C:002BH         LINE#         25
+  C:002EH         LINE#         26
+  C:0031H         LINE#         27
+  C:0034H         LINE#         28
+  C:0037H         LINE#         29
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        LED
+
+Program Size: data=9.0 xdata=0 code=108
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

@@ -1,0 +1,5 @@
+".\Objects\STARTUP.obj",
+".\Objects\STC15F104W输出可调PWM.obj",
+".\Objects\sys_delay_ms.obj" 
+TO ".\Objects\STC15F104W输出可调PWM" 
+PRINT(".\Listings\STC15F104W输出可调PWM.m51")

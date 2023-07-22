@@ -1,0 +1,3 @@
+".\Objects\times.obj" 
+TO ".\Objects\51单片机定时器应用" 
+PRINT(".\Listings\51单片机定时器应用.m51") RAMSIZE(64) 
